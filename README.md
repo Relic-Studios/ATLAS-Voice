@@ -27,7 +27,7 @@ Listening, the voice and the AI model all run on your own graphics card: no acco
 
 **Movie night with Juniper** (85 s, sound on). Recorded live on one PC with the installed ATLAS 1.0.
 
-https://github.com/Relic-Studios/ATLAS-Voice/raw/main/media/atlas-1.0-demo.mp4
+https://github.com/user-attachments/assets/1bbcd84b-46e2-4e98-b8b8-cae89010ddbc
 
 Juniper greets both friends by name, stays out of their side conversation about a charger, checks the live weather
 in London, looks at a shared screen to recommend a film, and remembers who is who.
@@ -37,7 +37,7 @@ streaming speech. Nothing is edited except the title and end cards.
 
 **Getting started** (35 s): from download to your first call.
 
-https://github.com/Relic-Studios/ATLAS-Voice/raw/main/media/atlas-1.0-getting-started.mp4
+https://github.com/user-attachments/assets/cfbb0f19-45f1-46e8-b6b8-7d544f06f168
 
 ---
 
