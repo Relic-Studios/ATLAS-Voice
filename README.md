@@ -1,7 +1,7 @@
 <p align="center"><img src="images/hero.png" alt="ATLAS: voice agents for group conversation, running on your own PC" width="100%"></p>
 
 <p align="center">
-  <a href="https://github.com/Relic-Studios/ATLAS-Voice/releases/latest"><b>⬇ Download ATLAS 1.0 for Windows</b></a>
+  <a href="https://github.com/Relic-Studios/ATLAS-Voice/releases/latest"><b>⬇ Download ATLAS for Windows</b></a>
   &nbsp;·&nbsp; <a href="#see-it-in-action">Watch the demo</a>
   &nbsp;·&nbsp; <a href="#what-atlas-can-do">Features</a>
   &nbsp;·&nbsp; <a href="#requirements">Requirements</a>
@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <img alt="Version 1.0.0" src="https://img.shields.io/badge/version-1.0.0-5ED3C6?style=flat-square&labelColor=151B24">
+  <img alt="Version 1.0.1" src="https://img.shields.io/badge/version-1.0.1-5ED3C6?style=flat-square&labelColor=151B24">
   <img alt="Windows 10 and 11" src="https://img.shields.io/badge/Windows-10%20%7C%2011-5ED3C6?style=flat-square&labelColor=151B24">
   <img alt="NVIDIA GPU" src="https://img.shields.io/badge/GPU-NVIDIA%20RTX-5ED3C6?style=flat-square&labelColor=151B24">
   <img alt="Free to use" src="https://img.shields.io/badge/price-free-5ED3C6?style=flat-square&labelColor=151B24">
@@ -53,7 +53,7 @@ https://github.com/user-attachments/assets/cfbb0f19-45f1-46e8-b6b8-7d544f06f168
 | **Your voice, your agent** | Juniper and her voice are ready on first launch. Make your own agent from a 10–20 second voice clip and a short description of the personality; ATLAS drafts it and you edit it. |
 | **Runs on your PC** | ATLAS installs its own private AI engine. The recommended model, Qwen3.5 9B, downloads during setup, or bring your own `.gguf`. |
 | **Sees your screen** | With Live screen on, ask "what's on my screen?" and the agent looks at the window you chose to share. |
-| **Abilities you choose** | 20 plugins: weather, date and time, timers, dice and polls, call summaries, live translation, game info, memory tools and more. Every one is off until you turn it on. |
+| **Abilities you choose** | Weather, date and time, timers, dice and polls, call summaries, live translation, game info, memory tools and more. Every plugin is off until you turn it on. |
 | **Remembers calls, not people** | Each agent keeps short memories of the calls it was in. Names are taken out before anything is stored, and you can view and delete memories at any time. |
 | **You stay in control** | Instant mute, quiet mode, a turn-taking slider from snappy to patient, mute a specific speaker, and a report after each conversation. |
 
@@ -81,7 +81,7 @@ Listening and the voice use about 6 GB of graphics memory; the recommended model
 
 ## Install
 
-1. **Download** `ATLAS-Setup-1.0.0.exe` (145 MB) from the
+1. **Download** `ATLAS-Setup-1.0.1.exe` from the
    [latest release](https://github.com/Relic-Studios/ATLAS-Voice/releases/latest).
 2. **Run it.** No admin rights needed. ATLAS installs into your own Program Files
    (`%LOCALAPPDATA%\Programs\ATLAS`) with its own copy of Python and the desktop app, so there's nothing else to
@@ -97,10 +97,13 @@ Listening and the voice use about 6 GB of graphics memory; the recommended model
 > **SmartScreen:** the installer isn't code-signed yet, so Windows may say it's an unrecognized app. Click
 > **More info → Run anyway**. You can check the file against `SHA256SUMS.txt` on the release page:
 > ```powershell
-> Get-FileHash .\ATLAS-Setup-1.0.0.exe -Algorithm SHA256
+> Get-FileHash .\ATLAS-Setup-1.0.1.exe -Algorithm SHA256
 > ```
 
-**Update:** run the new Setup over the old install. Settings, agents, voices and models are kept.<br>
+**Updating an existing installation**<br>
+Close ATLAS, download the new installer once, and run it over the existing installation. Setup keeps your settings, agents, voices and downloaded models. It replaces missing or changed application files and reuses verified dependencies and speech models.<br>
+**Reporting a startup issue**<br>
+In ATLAS 1.0.1, choose **Help → Save bug report…**. You can review the startup diagnostics before sharing them.<br>
 **Uninstall:** Windows Settings › Apps › **ATLAS** › Uninstall, or **Uninstall ATLAS** in the Start menu. It asks
 whether to keep your data (settings, voices, agents, memories) for a later reinstall.
 
@@ -147,13 +150,13 @@ Every plugin starts off. Turn on only what you want in **Plugins**.
 
 | Category | Plugins |
 |---|---|
-| **Knowledge** | Web search (needs a free Exa or Brave key) · Date & time · Weather · Quiet fact-check |
+| **Knowledge** | Web search · Date & time · Weather · Quiet fact-check |
 | **Senses** | Live screen · Languages · Live translate · Room-energy sense |
 | **Room** | Think while listening · Floor referee |
 | **Productivity** | Timers & reminders · Call summary |
 | **Memory** | Teach-me mode · Lore keeper · Soul reflection · Notes & follow-ups |
 | **Games** | Dice, coins & polls · Game info (live Steam prices and player counts) |
-| **Social & creative** | Step back · Highlight reel |
+| **Social** | Step back |
 
 ---
 
