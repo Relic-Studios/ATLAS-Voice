@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <img alt="Version 1.0.1" src="https://img.shields.io/badge/version-1.0.1-5ED3C6?style=flat-square&labelColor=151B24">
+  <img alt="Version 1.0.3" src="https://img.shields.io/badge/version-1.0.3-5ED3C6?style=flat-square&labelColor=151B24">
   <img alt="Windows 10 and 11" src="https://img.shields.io/badge/Windows-10%20%7C%2011-5ED3C6?style=flat-square&labelColor=151B24">
   <img alt="NVIDIA GPU" src="https://img.shields.io/badge/GPU-NVIDIA%20RTX-5ED3C6?style=flat-square&labelColor=151B24">
   <img alt="Free to use" src="https://img.shields.io/badge/price-free-5ED3C6?style=flat-square&labelColor=151B24">
@@ -81,7 +81,7 @@ Listening and the voice use about 6 GB of graphics memory; the recommended model
 
 ## Install
 
-1. **Download** `ATLAS-Setup-1.0.1.exe` from the
+1. **Download** `ATLAS-Setup-1.0.3.exe` from the
    [latest release](https://github.com/Relic-Studios/ATLAS-Voice/releases/latest).
 2. **Run it.** No admin rights needed. ATLAS installs into your own Program Files
    (`%LOCALAPPDATA%\Programs\ATLAS`) with its own copy of Python and the desktop app, so there's nothing else to
@@ -97,13 +97,13 @@ Listening and the voice use about 6 GB of graphics memory; the recommended model
 > **SmartScreen:** the installer isn't code-signed yet, so Windows may say it's an unrecognized app. Click
 > **More info → Run anyway**. You can check the file against `SHA256SUMS.txt` on the release page:
 > ```powershell
-> Get-FileHash .\ATLAS-Setup-1.0.1.exe -Algorithm SHA256
+> Get-FileHash .\ATLAS-Setup-1.0.3.exe -Algorithm SHA256
 > ```
 
 **Updating an existing installation**<br>
 Close ATLAS, download the new installer once, and run it over the existing installation. Setup keeps your settings, agents, voices and downloaded models. It replaces missing or changed application files and reuses verified dependencies and speech models.<br>
-**Reporting a startup issue**<br>
-In ATLAS 1.0.1, choose **Help → Save bug report…**. You can review the startup diagnostics before sharing them.<br>
+**Saving a bug report**<br>
+In ATLAS 1.0.3, choose **Help → Save bug report…**. The full report can include the selected call’s retained conversation, reply timing, and diagnostics. Choose the startup-only report for startup issues. Review the local file before sharing it.<br>
 **Uninstall:** Windows Settings › Apps › **ATLAS** › Uninstall, or **Uninstall ATLAS** in the Start menu. It asks
 whether to keep your data (settings, voices, agents, memories) for a later reinstall.
 
