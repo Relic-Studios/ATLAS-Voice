@@ -23,6 +23,8 @@ ATLAS is in active development. The Windows release is available to try today.
 
 **Already using ATLAS?** Close the app and run the Windows installer over your current installation. Setup keeps your models, agents, voices, and settings. [Latest installer and release notes](https://github.com/Relic-Studios/ATLAS-Voice/releases/latest)
 
+Created by [Aidan Poole (Relic)](https://relicstudios.xyz/aidan-poole.html) and published by [Relic Studios](https://relicstudios.xyz/). Project page: [relicstudios.xyz/projects/atlas-voice](https://relicstudios.xyz/projects/atlas-voice.html).
+
 ---
 
 ## See it in action
