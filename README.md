@@ -11,15 +11,17 @@
 </p>
 
 <p align="center">
-  <img alt="Version 1.0.4" src="https://img.shields.io/badge/version-1.0.4-5ED3C6?style=flat-square&labelColor=151B24">
+  <img alt="Latest GitHub release" src="https://img.shields.io/github/v/release/Relic-Studios/ATLAS-Voice?color=5ED3C6&style=flat-square&labelColor=151B24">
   <img alt="Windows 10 and 11" src="https://img.shields.io/badge/Windows-10%20%7C%2011-5ED3C6?style=flat-square&labelColor=151B24">
   <img alt="NVIDIA GPU" src="https://img.shields.io/badge/GPU-NVIDIA%20RTX-5ED3C6?style=flat-square&labelColor=151B24">
   <img alt="Free to use" src="https://img.shields.io/badge/price-free-5ED3C6?style=flat-square&labelColor=151B24">
 </p>
 
-**ATLAS** puts an AI voice agent into your group calls. It listens to everyone in the room or call, works out who
-is talking, answers when it's spoken to, stays quiet when it isn't, and talks back in a voice you choose.
-Listening, the voice and the AI model all run on your own graphics card: no account, no telemetry, no bundled keys.
+**ATLAS** brings Juniper, a voice agent, into a room or group call. Ask her a question by name, let her follow the conversation, or give a character of your own a voice. Speech recognition and voice generation run on your Windows PC. For the conversation model, choose ATLAS’s local engine or connect a provider.
+
+ATLAS is in active development. The Windows release is available to try today.
+
+**Already using ATLAS?** Close the app and run the Windows installer over your current installation. Setup keeps your models, agents, voices, and settings. [Latest installer and release notes](https://github.com/Relic-Studios/ATLAS-Voice/releases/latest)
 
 ---
 
@@ -45,210 +47,109 @@ https://github.com/user-attachments/assets/cfbb0f19-45f1-46e8-b6b8-7d544f06f168
 
 <p align="center"><img src="images/dashboard.png" alt="The ATLAS dashboard during a live call" width="100%"></p>
 
-| | |
-|---|---|
-| **Group conversation** | Built for calls with several people. It answers when it's addressed, by name or by context, and stays out of conversations that aren't for it. Short in banter, fuller when you ask it something real. |
-| **Knows who's who** | Labels each speaker and learns names from introductions, so it's "Sam" and "Riley", not "Speaker 3". Optional owner recognition lets it pick out your voice in later calls. |
-| **Fast, natural voice** | It starts speaking while the reply is still being written. In our 1.0 test runs the median time from the end of a question to the agent's first word was about a second. |
-| **Your voice, your agent** | Juniper and her voice are ready on first launch. Make your own agent from a 10–20 second voice clip and a short description of the personality; ATLAS drafts it and you edit it. |
-| **Runs on your PC** | ATLAS installs its own private AI engine. The recommended model, Qwen3.5 9B, downloads during setup, or bring your own `.gguf`. |
-| **Sees your screen** | With Live screen on, ask "what's on my screen?" and the agent looks at the window you chose to share. |
-| **Abilities you choose** | Weather, date and time, timers, dice and polls, call summaries, live translation, game info, memory tools and more. Every plugin is off until you turn it on. |
-| **Remembers calls, not people** | Each agent keeps short memories of the calls it was in. Names are taken out before anything is stored, and you can view and delete memories at any time. |
-| **You stay in control** | Instant mute, quiet mode, a turn-taking slider from snappy to patient, mute a specific speaker, and a report after each conversation. |
+- **Join a conversation.** Juniper listens for who is speaking and who they’re addressing. She can start speaking as her reply is generated. Under **Reply mode**, **Live** lets her participate normally, **Quiet** limits replies to being addressed by name for ten minutes, and **Muted** stops replies until you switch back.
+- **Recognize your voice.** Use the dashboard’s **This is me** action on one of your own turns to set up owner recognition. This teaches ATLAS who is speaking. To change how the *agent* sounds, use the character’s voice selector.
+- **Help you find a feature.** Ask “Juniper, how do I set up web search?” She can explain which Marketplace item to install and where to configure it.
+- **Follow what’s on screen.** With Live screen configured and sharing on, ask “What just happened?” ATLAS can use recent frames from the monitor or window you chose.
 
-<p align="center"><img src="images/pipeline.png" alt="How ATLAS works: hearing, who's talking, turn-taking, thinking, voice" width="100%"></p>
-
----
+<p align="center"><img src="images/pipeline.png" alt="The stages of a voice reply, from hearing to speaking" width="100%"></p>
 
 ## Requirements
 
-| | |
+| Component | What to plan for |
 |---|---|
-| **System** | Windows 10 or 11 (64-bit), 16 GB RAM, about 17 GB free disk plus your model |
-| **Graphics card** | NVIDIA GeForce GTX 16-series, RTX 20-series or newer, with a recent driver. Setup checks your card and driver before it downloads anything. |
-| **Internet** | For the install and model download. After that a fully local setup runs offline; plugins like Weather need the internet. |
-
-| Graphics memory | What you get |
-|---|---|
-| **16 GB or more** (e.g. RTX 4080, 4090, 5080, 5090) | **Fully local.** Listening, voice and the AI model on your PC, with the recommended Qwen3.5 9B or your own model. |
-| **8–15 GB** (e.g. RTX 3060, 4060, 4070) | **ATLAS with an API provider** for the AI model. Listening and the voice still run on your PC. |
-
-Listening and the voice use about 6 GB of graphics memory; the recommended model uses about 7.5 GB more.
-12 GB cards can't fit a local model next to the voice yet; we're working on it.
-
----
+| Windows | Windows 10 or 11, 64-bit. Allow about 17 GB of free disk space plus the model download. Start with 16 GB of system RAM. |
+| GPU for voice | NVIDIA GeForce GTX 16-series, RTX 20-series or newer, with a recent driver. Plan for at least 8 GB of graphics memory when a provider runs the conversation model. |
+| GPU for a local model | Voice and Qwen3.5 9B together need about 13 GB of graphics memory. Larger models need more. Setup suggests a model based on the GPU and system RAM it detects. |
+| Internet | Needed for initial downloads and online providers or plugins. Once the files are installed, a fully local voice conversation can run offline. |
 
 ## Install
 
-1. **Download** `ATLAS-Setup-1.0.4.exe` from the
-   [latest release](https://github.com/Relic-Studios/ATLAS-Voice/releases/latest).
-2. **Run it.** No admin rights needed. ATLAS installs into your own Program Files
-   (`%LOCALAPPDATA%\Programs\ATLAS`) with its own copy of Python and the desktop app, so there's nothing else to
-   install. Setup shows each step, how much is downloaded and the time left. **Stop** is always available; run Setup
-   again and it finishes what's left.
-3. **First launch** is one page with two choices:
-   - **The brain:** download the recommended model, import your own `.gguf` file, or choose an API provider.
-     ATLAS checks the model (chat format, thinking switch, vision), loads it and warms it up, so the first reply
-     has no wait.
-   - **Audio:** the microphone or call input the agent listens to, and where it speaks.
-4. Press **Start ATLAS** and say "Hey Juniper".
+1. Download the Windows installer from the [latest release](https://github.com/Relic-Studios/ATLAS-Voice/releases/latest). Run it under your Windows account. The default folder is `%LOCALAPPDATA%\Programs\ATLAS`.
+2. On first launch, choose **Download a model**, **Use my own GGUF**, or **Use an API**. For a local download, select the suggested model and click **Download & use** once. Leave setup open while it checks the model and prepares voice.
+3. Under **Audio**, choose the microphone ATLAS should hear and the headphones or call output where you want its voice to play. When ready, select **Start ATLAS**.
+4. Try “Juniper, can you hear me?” Juniper comes with a voice and personality. You can create another character whenever you’re ready.
 
-> **SmartScreen:** the installer isn't code-signed yet, so Windows may say it's an unrecognized app. Click
-> **More info → Run anyway**. You can check the file against `SHA256SUMS.txt` on the release page:
-> ```powershell
-> Get-FileHash .\ATLAS-Setup-1.0.4.exe -Algorithm SHA256
-> ```
-
-**Updating an existing installation**<br>
-Close ATLAS, download the new installer once, and run it over the existing installation. Setup keeps your settings, agents, voices and downloaded models. It replaces missing or changed application files and reuses verified dependencies and speech models.<br>
-**Saving a bug report**<br>
-In ATLAS 1.0.4, choose **Help → Save bug report…**. The full report can include the selected call’s retained conversation, reply timing, and diagnostics. Choose the startup-only report for startup issues. Review the local file before sharing it.<br>
-**Uninstall:** Windows Settings › Apps › **ATLAS** › Uninstall, or **Uninstall ATLAS** in the Start menu. It asks
-whether to keep your data (settings, voices, agents, memories) for a later reinstall.
+For updates, run the installer in the same location. Setup checks existing application files, repairs missing or changed files, and reuses verified dependencies and downloaded models. To verify your download, compare its SHA-256 with `SHA256SUMS.txt` on the same release page.
 
 ### Bring it into a call
 
-ATLAS works from one mixed audio stream, the same thing you'd hear in the call. To use it in Discord or any other
-voice app, route the call's audio into a virtual audio cable (for example
-[VB-Audio Voicemeeter](https://vb-audio.com/Voicemeeter/)), pick that cable as ATLAS's input, and pick the cable
-that feeds your call as its output. To talk with it in the room instead, use your microphone and speakers.
+For a conversation at your desk, start with your microphone and headphones. For a group call, ATLAS needs to hear the call mix and send its voice back to the call. Route the mix to **ATLAS input**, and route **ATLAS output** to the input your call app transmits. A virtual mixer can provide both paths. Keep the agent’s output out of its own input to avoid echoes. Let everyone know ATLAS can hear the call. [Voicemeeter](https://vb-audio.com/Voicemeeter/)
 
-Tell everyone in the call before you bring an agent in: it hears all of them.
+### Create a character and add a voice
 
----
+1. Click **+** in the dashboard’s agent list to open **New agent**. Enter a name and a short description of the character.
+2. Pick an existing voice or select **+ Voice**. Use a clear 4–20 second clip of one person speaking without music. WAV and M4A both work with the included decoder. Use your own voice or a recording you have permission to use.
+3. Give the voice a name, optionally enter the words spoken in the clip, and click **Import voice**. If an upload is interrupted, retry from the same form.
+4. Click **Interpret** to draft the personality with your selected model, or **Skip model** to write it yourself. Review the draft and click **Create & switch**.
+
+A character named *Ada Lovelace* can answer when you say “Ada.” To change a custom character’s voice later, select that character and use the dashboard voice selector. The assignment is saved for future sessions.
 
 ## Choosing the brain
 
-<p align="center"><img src="images/models.png" alt="Settings › Models: switch, check, download, import and remove models" width="100%"></p>
+<p align="center"><img src="images/models.png" alt="Local model management in ATLAS" width="100%"></p>
 
-**On your PC (recommended).** ATLAS runs models in its own private engine on its own port. It never touches an
-Ollama or other AI tools you already have. Manage them any time in **Settings › Models**: switch with a check,
-download by name, import a `.gguf`, or remove one.
+**Local models.** ATLAS manages its own engine. Setup marks a suggested model and shows the download size, memory fit, and image support. After setup, open **File → Settings → Local models** to manage downloads.
 
-| Model | Size | Notes |
-|---|---|---|
-| **Qwen3.5 9B** | 6.6 GB | Recommended. Sees your screen. |
-| Qwen3 8B | 5 GB | Text only (no Live screen). |
-| Qwen3.5 27B | 17 GB | Sees your screen; needs a much bigger card. |
+| Model in the 1.0.4 selector | Download | Image support |
+|---|---:|---|
+| Qwen3.5 9B | 6.6 GB | Yes. Used in the installed 1.0.4 voice test. |
+| Qwen3 14B | 9 GB | Text only. |
+| Qwen3.8 27B | 18 GB | Yes. Needs substantially more GPU memory than the 9B model. |
+| Qwen3.6 35B-A3B | 23 GB | Yes. Uses system RAM for some weights and requires at least 32 GB of RAM. |
 
-A model must be 8B or larger and have a thinking switch in its chat template: ATLAS answers with thinking off and can
-think while listening. Setup refuses models that can't, and tells you why before copying anything.
+For **Use my own GGUF**, choose a supported Qwen model of 8B parameters or more whose chat template can turn thinking on and off. For a compatible vision model, select its matching **Vision file (mmproj)** to enable image input. Setup checks compatibility before use.
 
-**API provider (limited).** Any OpenAI-compatible provider (for example OpenRouter, Together, Groq or OpenAI) with
-your own key, or a Claude Code or Codex subscription account through its official sign-in. It works, but with
-trade-offs: no full think-while-listening, slower replies than on your PC, it costs money, and the conversation goes
-to that company. Keys are stored only on your PC.
-
----
+**Providers.** Under **Use an API**, choose a preset such as DeepSeek, OpenRouter, or OpenAI, or enter an OpenAI-compatible endpoint. Codex and Claude Code also have account connection options through their official CLIs. Speech stays on your PC. Conversation text goes to the selected provider, and requests use its billing or account allowance.
 
 ## Plugins
 
-<p align="center"><img src="images/plugins.png" alt="The Plugins page" width="100%"></p>
+<p align="center"><img src="images/plugins.png" alt="The ATLAS plugin manager" width="100%"></p>
 
-Every plugin starts off. Turn on only what you want in **Plugins**.
+Plugins start off. Open **Plugins → Marketplace**, choose an available plugin, and install it. Under **Installed**, configure and enable it. Items marked **Coming soon** are previews.
 
-| Category | Plugins |
+| Plugin | Getting started |
 |---|---|
-| **Knowledge** | Web search · Date & time · Weather · Quiet fact-check |
-| **Senses** | Live screen · Languages · Live translate · Room-energy sense |
-| **Room** | Think while listening · Floor referee |
-| **Productivity** | Timers & reminders · Call summary |
-| **Memory** | Teach-me mode · Lore keeper · Soul reflection · Notes & follow-ups |
-| **Games** | Dice, coins & polls · Game info (live Steam prices and player counts) |
-| **Social** | Step back |
-
----
+| **Web search** | The free option supports limited lookups. Under **Configure**, add a Brave or Exa key for full web search. |
+| **Live screen** | Choose a monitor or window and verify an image-capable model or separate vision observer. Then turn on dashboard sharing. By default ATLAS analyzes frames when asked. A rolling buffer holds about 30 seconds in memory, sampled around twice per second. |
+| **Think while listening** | Uses the selected brain to prepare short private notes that can inform a reply. It works with the built-in engine, configured APIs, and connected Codex or Claude accounts. Background requests count toward the provider’s allowance. |
 
 ## Privacy
 
-<p align="center"><img src="images/settings.png" alt="Settings: identity, conversation brain and audio routing" width="100%"></p>
+<p align="center"><img src="images/settings.png" alt="Settings for identity, conversation model, and audio routing" width="100%"></p>
 
-- **Local by default.** With a local model, listening, thinking and speaking all happen on your PC. The ATLAS server
-  listens on this computer only and rejects requests from web pages.
-- **No account, no telemetry, no bundled keys.**
-- **Memories are about calls, not people.** They're made after a call ends, on your PC. Names of the people in the
-  call are taken out first, and phone numbers, emails, addresses and keys are never stored. Say "remember that…",
-  "forget that" or "off the record". Open an agent's **Memory** window to see or delete what it keeps.
-- **API providers only get what they need** for replies, and background memory processing goes to them only if you
-  tick **Allow cloud processing**.
-- **Consent:** only clone your own voice, or a voice whose owner agreed. Don't impersonate real people.
+A local setup runs listening, conversation, and voice on your PC. Choosing a remote provider sends conversation context to that service. Online plugins contact the service you configure. You can review and delete an agent’s saved memories from **Memory**.
 
----
+**Help → Save bug report** creates a file on your computer. A full report can include a selected call’s retained transcript, timing, and diagnostic events. Choose the startup-only option for installation or launch issues. Review the file before sharing it, especially if other people spoke in the call.
 
-## What we tested for 1.0
+## What we tested in 1.0.4
 
-ATLAS 1.0 was qualified with a full automated run on the release build: a fresh install of the actual installer,
-first-run setup, every plugin, and a scripted group conversation through the real pipeline.
+On a Windows RTX 4090 PC, the released installer updated an isolated 1.0.3 installation in place. It preserved saved settings, and all 3,597 installed application files matched the release manifest.
 
-| | Result |
-|---|---|
-| **Install** | Silent install from `ATLAS-Setup-1.0.0.exe`, all 145 app modules compiled, AI engine checksum verified |
-| **First run** | Model downloaded, checked (chat format, thinking on/off, vision) and warmed; voice ready 0.24 s after Start |
-| **Plugins** | 17 passed their own tests; Web search (needs a key), Live screen (covered in the conversation) and Highlight reel (separate runtime) were not tested automatically. None failed. |
-| **Conversation** | Every scripted check passed: answered when addressed, stayed quiet for asides and when told to, came back when invited, read a number off the shared screen |
-| **Speed** | Time to first audio: median 970 ms, P90 1.44 s (RTX 4090, Qwen3.5 9B) |
-| **Memory use** | Peak 13,975 MiB (about 13.6 GB) of graphics memory for voice plus model, nothing spilled into shared memory |
-| **Dependencies** | No known vulnerabilities (pip-audit, npm audit) |
-
-Overall: 76 checks passed, 0 failed. Testing so far is on a Windows RTX 4090 PC; other hardware hasn't had much
-testing yet, so your bug reports really help.
-
----
+In the installed dashboard, we imported WAV and M4A clips, created characters by hand and with local Qwen3.5 9B, and verified that a custom character retained its voice after restart. In a virtual call, we asked “Ada, what is the capital of France?” Ada Lovelace answered “Paris” out loud. We also verified restart with the previous log held open, and separately tested microphone input loss and a stalled speech recognizer using a Windows virtual audio device. [1.0.4 release notes and checksum](https://github.com/Relic-Studios/ATLAS-Voice/releases/tag/v1.0.4)
 
 ## FAQ and troubleshooting
 
-<details>
-<summary><b>Setup says my graphics card isn't supported.</b></summary>
+**Juniper is silent. What should I check?**
 
-ATLAS needs an NVIDIA GTX 16-series, RTX 20-series or newer with at least 8 GB of graphics memory. GTX 10-series
-(Pascal) and older cards, and AMD or Intel graphics, aren't supported. If Setup says your driver is too old, update it
-from [nvidia.com/drivers](https://www.nvidia.com/drivers) (free).
-</details>
+Set **Reply mode** to **Live**, speak Juniper’s name, and watch **Call in** on the dashboard. If ATLAS shows no microphone frames, check the input in **File → Settings → Audio routing**. If frames are arriving but recognition stopped reading them, restart voice. If a reply appears in the transcript but you hear nothing, check the selected output.
 
-<details>
-<summary><b>"This model can't run ATLAS."</b></summary>
+**Why can’t the agent see my screen?**
 
-The model's chat template has no thinking switch, or it's smaller than 8B. Choose a Qwen model that has one, such as
-`qwen3.5:9b`. Thinking-only builds are refused on purpose: they're too slow to answer in a live call.
-</details>
+Open **Plugins → Installed → Live screen**. Check the capture source and image route, then turn on the dashboard sharing switch. A text-only conversation model needs a separately configured vision observer for this feature.
 
-<details>
-<summary><b>The agent doesn't answer.</b></summary>
+**Where can I find the logs?**
 
-Check the **Audio** panel on the dashboard: **Call in** should move when people talk. If it doesn't, pick the right
-input in **Settings › Audio routing**. Say the agent's name the first time. If the turn-taking slider is set to
-patient, it waits longer before it speaks.
-</details>
+Start with **Help → Save bug report**. For a default installation, the usual log is `%LOCALAPPDATA%\Programs\ATLAS\server.log`. When that file is locked, ATLAS writes the new launch log in the installation’s `logs` folder.
 
-<details>
-<summary><b>Where are the logs?</b></summary>
+**How do I uninstall?**
 
-`server.log` in `%LOCALAPPDATA%\Programs\ATLAS`; earlier launches are in its `logs` folder.
-</details>
-
-<details>
-<summary><b>Can I use it on Linux or macOS?</b></summary>
-
-ATLAS 1.0 is Windows only.
-</details>
-
-<details>
-<summary><b>Is it open source?</b></summary>
-
-No. ATLAS 1.0 is free to use and closed source; see [LICENSE](LICENSE). This repository holds the official releases.
-</details>
-
----
+Open **Windows Settings → Apps → ATLAS → Uninstall**. The uninstaller asks whether to keep your settings, agents, voices, and memories for a future installation.
 
 ## Report a problem
 
-Open a [GitHub issue](https://github.com/Relic-Studios/ATLAS-Voice/issues) with your graphics card, the model or
-provider you use, what happened, and the relevant part of the log. Remove anything private first, and never include
-API keys or call recordings. Questions, tips and clips go in the
-[community Discord](https://discord.gg/dWvcu3yG6s).
+Include your ATLAS version, GPU, model or provider, and the steps that led to the problem. Share only the log excerpt or report contents you intend to make public. [GitHub issues](https://github.com/Relic-Studios/ATLAS-Voice/issues) · [Community Discord](https://discord.gg/dWvcu3yG6s)
 
 ## License
 
-ATLAS is free to use and closed source. See [LICENSE](LICENSE). Third-party components and models keep their own
-licenses. Copyright © 2026 Relic Studios.
+ATLAS is free to use and closed source. Third-party components and models keep their own licenses. Copyright © 2026 Relic Studios. [License](LICENSE)
