@@ -74,6 +74,8 @@ https://github.com/user-attachments/assets/cfbb0f19-45f1-46e8-b6b8-7d544f06f168
 
 For updates, run the installer in the same location. Setup checks existing application files, repairs missing or changed files, and reuses verified dependencies and downloaded models. To verify your download, compare its SHA-256 with `SHA256SUMS.txt` on the same release page.
 
+If Windows needs the Microsoft Visual C++ x64 runtime, Setup includes the signed Microsoft installer. Windows may ask you to approve that installation.
+
 ### Bring it into a call
 
 For a conversation at your desk, start with your microphone and headphones. For a group call, ATLAS needs to hear the call mix and send its voice back to the call. Route the mix to **ATLAS input**, and route **ATLAS output** to the input your call app transmits. A virtual mixer can provide both paths. Keep the agent’s output out of its own input to avoid echoes. Let everyone know ATLAS can hear the call. [Voicemeeter](https://vb-audio.com/Voicemeeter/)
@@ -93,9 +95,9 @@ A character named *Ada Lovelace* can answer when you say “Ada.” To change a 
 
 **Local models.** ATLAS manages its own engine. Setup marks a suggested model and shows the download size, memory fit, and image support. After setup, open **File → Settings → Local models** to manage downloads.
 
-| Model in the 1.0.4 selector | Download | Image support |
+| Model in the setup selector | Download | Image support |
 |---|---:|---|
-| Qwen3.5 9B | 6.6 GB | Yes. Used in the installed 1.0.4 voice test. |
+| Qwen3.5 9B | 6.6 GB | Yes. Used in the installed 1.0.5 voice test. |
 | Qwen3 14B | 9 GB | Text only. |
 | Qwen3.8 27B | 18 GB | Yes. Needs substantially more GPU memory than the 9B model. |
 | Qwen3.6 35B-A3B | 23 GB | Yes. Uses system RAM for some weights and requires at least 32 GB of RAM. |
@@ -124,7 +126,11 @@ A local setup runs listening, conversation, and voice on your PC. Choosing a rem
 
 **Help → Save bug report** creates a file on your computer. A full report can include a selected call’s retained transcript, timing, and diagnostic events. Choose the startup-only option for installation or launch issues. Review the file before sharing it, especially if other people spoke in the call.
 
-## What we tested in 1.0.4
+## What we tested in 1.0.5
+
+We tested a fresh Windows installation and an update over 1.0.4. The update kept the custom agent, selected voice, microphone and speakers. On an RTX 4090, Juniper correctly spoke the revised day, paint color and number after the caller paused and corrected themselves. [1.0.5 release notes and checksum](https://github.com/Relic-Studios/ATLAS-Voice/releases/tag/v1.0.5)
+
+### Earlier checks in 1.0.4
 
 On a Windows RTX 4090 PC, the released installer updated an isolated 1.0.3 installation in place. It preserved saved settings, and all 3,597 installed application files matched the release manifest.
 
